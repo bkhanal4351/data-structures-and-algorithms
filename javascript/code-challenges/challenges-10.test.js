@@ -27,14 +27,15 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-
-
-
-
-  // Solution code here...
-
- 
-
+  let max = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      let min = matrix[i][j];
+      if (min > max) {
+        max = min;
+      }
+    }
+  } return max;
 };
 
 
@@ -53,7 +54,12 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  let sum = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      sum += matrix[i][j];
+    }
+  } return sum;
 };
 
 
@@ -80,9 +86,22 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
 
+  let arr = [];
+
+  for (let i in hoursOpen) {
+    let value = 0;
+    for (let j in stores) {
+
+      value += stores[j][i];
+    }
+    arr.push(value);
+  }
+  return arr;
 };
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -95,7 +114,13 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let arr = [];
+  data.forEach((element, idx) => {
+    let value = { 'sales': `${element} cookies`, 'time': `${hours[idx]}` };
+    arr.push(value);
+  });
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,7 +145,8 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let store =arr[2];
+  return store.items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
