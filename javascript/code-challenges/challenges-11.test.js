@@ -62,9 +62,9 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  let value =0;
+  let value = 0;
   input.map(arr => {
-    arr.map(element => value+=element);
+    arr.map(element => value += element);
   });
   return value;
 };
@@ -82,7 +82,9 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.map(row => {
+    return row.filter(cell => typeof cell === 'number' && cell % 5 === 0).map(cell => Math.pow(2, cell));
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,9 +149,9 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = (data) => data.filter((person) => person.gender === 'male' || person.gender === 'female').map((personArr) => personArr.name).join(' and ');
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -158,8 +160,18 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 ------------------------------------------------------------------------------------------------ */
 
 let findShortest = (data) => {
-  // Solution code here...
+  let short = '';
+  let height = data.map(value => value.height).sort((a, b) => a - b);
+  data.forEach(value => {
+    if (value.height === height[0]) {
+      short = value.name;
+    }
+
+  });
+  return short;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
