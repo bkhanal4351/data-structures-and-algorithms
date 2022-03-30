@@ -66,7 +66,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let reg = /^[a-zA-Z0-9]+\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\.(net|org|com)\b/;
+  return reg.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,9 +91,8 @@ Your function should include a single regular expression pattern that matches an
 Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
-const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
-};
+const validatePhoneNumber = (phoneNumber) => /^(\(\d{3}\)|\d{3}) ?-?\d{3} ?-?\d{4}$/.test(phoneNumber);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
